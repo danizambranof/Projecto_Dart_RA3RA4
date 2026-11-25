@@ -66,8 +66,10 @@ double calculateFinalTotal(double subtotal, double discountAmount) {
 /// [productId] The ID of the product to find
 /// Returns the Product if found, null otherwise
 Product? findProductById(List<Product> catalog, int productId) {
-  if (productId >= 1 && productId <= catalog.length) {
-    return catalog[productId];
+  for (var product in catalog) {
+    if (product.id == productId) {
+      return product;
+    }
   }
   return null;
 }
